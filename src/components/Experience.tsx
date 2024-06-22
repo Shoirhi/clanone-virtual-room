@@ -18,7 +18,6 @@ import {
 
 import Model from "./Room";
 import { useState, useEffect } from "react";
-import { Player } from "./Player";
 
 export default function Experience() {
   const [showInstructions, setShowInstructions] = useState(true);
