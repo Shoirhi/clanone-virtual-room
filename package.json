@@ -9,9 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@dimforge/rapier3d-compat": "^0.13.1",
     "@radix-ui/react-slot": "^1.1.0",
     "@react-three/drei": "^9.107.0",
     "@react-three/fiber": "^8.16.8",
+    "@react-three/postprocessing": "^2.16.2",
+    "@react-three/rapier": "^1.4.0",
     "@types/three": "^0.165.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
