@@ -8,7 +8,7 @@ import * as THREE from 'three'
 
 export default function Model(props: any) {
   return (
-    <Gltf src="/models/room.glb" scale={1} position={[0, 0, 0]} {...props} />
+    <Gltf src="/models/clan-one-room-v6-1.glb" scale={1} position={[0, 0, 0]} {...props} />
   )
 }
 

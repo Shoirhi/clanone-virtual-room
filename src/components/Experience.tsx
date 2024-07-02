@@ -6,6 +6,7 @@ import {
   PointerLockControls,
   FlyControls,
   Sky,
+  Environment
 } from "@react-three/drei";
 import { Button } from "./ui/button";
 import {
@@ -38,10 +39,11 @@ export default function Experience() {
   });
   return (
     <>
-      <Canvas camera={{ position: [0, 4, 0] }} shadows>
+      <Canvas camera={{ position: [0, 0, 0] }} shadows>
         <PointerLockControls makeDefault selector="#button" />
         <FlyControls />
-        <ambientLight intensity={2} />
+        <ambientLight intensity={0.3} />
+        <Environment preset="warehouse" />
         <Sky
           distance={450000}
           sunPosition={[0, 1, 0]}
@@ -50,7 +52,7 @@ export default function Experience() {
         />
         <Model receiveShadow />
         <EffectComposer>
-          <Bloom luminanceThreshold={0} luminanceSmoothing={0.9} height={300} />
+          <Bloom luminanceThreshold={0} luminanceSmoothing={0} height={0} />
           <Noise opacity={0.02} />
           <Vignette eskil={false} offset={0.02} darkness={0.5} />
         </EffectComposer>
