@@ -17,10 +17,11 @@ import {
   Vignette,
   SSAO, DepthOfField, ToneMapping
 } from "@react-three/postprocessing";
+import { Physics, Debug } from '@react-three/cannon';
 
 import Model from "./Room";
 import { useState, useEffect } from "react";
-import Player from "./Player";
+// import Player from "./Player";
 
 export default function Experience() {
   const [showInstructions, setShowInstructions] = useState(true);
@@ -43,7 +44,6 @@ export default function Experience() {
     <>
       <Canvas camera={{ position: [0, 0, 0] }}>
         <PointerLockControls makeDefault selector="#button" />
-        <Player />
         <ambientLight intensity={0.3} />
         <Environment preset="warehouse" />
         <Sky
@@ -52,7 +52,11 @@ export default function Experience() {
           inclination={0}
           azimuth={0.25}
         />
-        <Model />
+        <Physics gravity={[0, -9.8, 0]}>
+
+          {/* <Player controls position={[0, 0.5, 0]} args={[0.1, 0.1, 0.1]} color="yellow" /> */}
+          <Model />
+        </Physics>
         <EffectComposer>
           <Bloom luminanceThreshold={0} luminanceSmoothing={0} height={0} />
           <Noise opacity={0.02} />
