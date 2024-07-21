@@ -9,8 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.616.0",
     "@dimforge/rapier3d-compat": "^0.13.1",
     "@radix-ui/react-slot": "^1.1.0",
+    "@react-three/cannon": "^6.6.0",
     "@react-three/drei": "^9.107.0",
     "@react-three/fiber": "^8.16.8",
     "@react-three/postprocessing": "^2.16.2",

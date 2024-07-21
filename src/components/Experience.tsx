@@ -3,6 +3,7 @@ import { Canvas } from "@react-three/fiber";
 import { cn } from "@/lib/utils";
 import {
   OrbitControls,
+  FirstPersonControls,
   PointerLockControls,
   FlyControls,
   Sky,
@@ -19,6 +20,7 @@ import {
 
 import Model from "./Room";
 import { useState, useEffect } from "react";
+import Player from "./Player";
 
 export default function Experience() {
   const [showInstructions, setShowInstructions] = useState(true);
@@ -39,9 +41,9 @@ export default function Experience() {
   });
   return (
     <>
-      <Canvas camera={{ position: [0, 0, 0] }} shadows>
+      <Canvas camera={{ position: [0, 0, 0] }}>
         <PointerLockControls makeDefault selector="#button" />
-        <FlyControls />
+        <Player />
         <ambientLight intensity={0.3} />
         <Environment preset="warehouse" />
         <Sky
@@ -50,7 +52,7 @@ export default function Experience() {
           inclination={0}
           azimuth={0.25}
         />
-        <Model receiveShadow />
+        <Model />
         <EffectComposer>
           <Bloom luminanceThreshold={0} luminanceSmoothing={0} height={0} />
           <Noise opacity={0.02} />
