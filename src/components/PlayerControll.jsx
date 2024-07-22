@@ -15,7 +15,6 @@ export default function PlayerControl() {
 
   useFrame(({ camera }) => {
     if (rb.current) {
-      const vel = rb.current.linvel();
       const movement = new Vector3();
       const forward = new Vector3();
       const right = new Vector3();
