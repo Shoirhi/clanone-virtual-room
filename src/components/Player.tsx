@@ -1,7 +1,7 @@
 export default function Player() {
   return (
-    <mesh position={[0, 0, 0]}>
-      <capsuleGeometry args={[0.35, 1, 16, 16]} />
+    <mesh>
+      <capsuleGeometry args={[0.3, 1.8, 10, 10]} />
       <meshStandardMaterial color="yellow" />
     </mesh>
   );

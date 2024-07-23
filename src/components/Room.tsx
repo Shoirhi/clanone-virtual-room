@@ -11,7 +11,7 @@ export default function Model(props: any) {
   return (
     <group>
       <RigidBody type="fixed" colliders="trimesh">
-        <Gltf src="https://pub-897cab9d4e9f455983feccce16991279.r2.dev/clan-one-room-v6-1.glb" scale={0.6} position={[0, 0, 0]} {...props} />
+        <Gltf src="https://pub-897cab9d4e9f455983feccce16991279.r2.dev/clan-one-room-v6-1.glb" scale={1} position={[0, 6.6, 0]} {...props} />
       </RigidBody>
     </group>
   )

@@ -64,13 +64,23 @@ export default function Experience() {
         <Physics timeStep="vary">
           <Suspense fallback={null}>
             <KeyboardControls map={keyboardMap}>
-              <Ecctrl debug
+              <Ecctrl
+                capsuleHalfHeight={0.9}
+                capsuleRadius={0.3}
+                floatHeight={0}
+                autoBalance={false}
+                jumpVel={0}
+                jumpForceToGroundMult={0}
+                slopJumpMult={0}
+                sprintJumpMult={0}
+                wakeUpDelay={0}
+                position={[0, 10, 0]}
                 camInitDis={-0.01} // camera intial position
-                camMinDis={-0.01} // camera zoom in closest position
-                camFollowMult={100} // give any big number here, so the camera follows the character instantly
-                turnVelMultiplier={1} // Turning speed same as moving speed
-                turnSpeed={100} // give it big turning speed to prevent turning wait time
-                mode="CameraBasedMovement" // character's rotation will follow camera's rotation in this mode
+  camMinDis={-0.01} // camera zoom in closest position
+  camFollowMult={100} // give any big number here, so the camera follows the character instantly
+  turnVelMultiplier={1} // Turning speed same as moving speed
+  turnSpeed={100} // give it big turning speed to prevent turning wait time
+  mode="CameraBasedMovement" // character's rotation will follow camera's rotation in this mode
               >
                 <Player />
               </Ecctrl>
