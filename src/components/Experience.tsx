@@ -16,7 +16,7 @@ import { Suspense } from 'react'
 
 import Model from "./Room";
 import PlayerControll from "./PlayerControll";
-import { Physics } from "@react-three/rapier";
+import { Physics, RigidBody } from "@react-three/rapier";
 import { KeyboardControls } from "@react-three/drei";
 import Ecctrl, { EcctrlJoystick } from 'ecctrl'
 import Player from "./Player";
@@ -60,7 +60,7 @@ export default function Experience() {
       <EcctrlJoystick />
       <Canvas>
         <Environment preset="warehouse" />
-        <ambientLight intensity={0.3} />
+        {/* <ambientLight intensity={0.3} /> */}
         <Physics timeStep="vary">
           <Suspense fallback={null}>
             <KeyboardControls map={keyboardMap}>
@@ -76,16 +76,28 @@ export default function Experience() {
                 wakeUpDelay={0}
                 position={[0, 10, 0]}
                 camInitDis={-0.01} // camera intial position
-  camMinDis={-0.01} // camera zoom in closest position
-  camFollowMult={100} // give any big number here, so the camera follows the character instantly
-  turnVelMultiplier={1} // Turning speed same as moving speed
-  turnSpeed={100} // give it big turning speed to prevent turning wait time
-  mode="CameraBasedMovement" // character's rotation will follow camera's rotation in this mode
+                camMinDis={-0.01} // camera zoom in closest position
+                camFollowMult={100} // give any big number here, so the camera follows the character instantly
+                turnVelMultiplier={1} // Turning speed same as moving speed
+                turnSpeed={100} // give it big turning speed to prevent turning wait time
+                mode="CameraBasedMovement" // character's rotation will follow camera's rotation in this mode
               >
                 <Player />
               </Ecctrl>
             </KeyboardControls>
-            <Model />
+            <group>
+              <RigidBody type="fixed" colliders="trimesh">
+                <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 0]}>
+                  {/* 床の平面 */}
+                  <planeGeometry args={[100, 100]} />
+                  {/* シンプルな基本マテリアル */}
+                  <meshStandardMaterial color="lightgray" />
+                </mesh>
+              </RigidBody>
+            </group>
+            <Suspense fallback={null}>
+              <Model />
+            </Suspense>
           </Suspense>
         </Physics>
       </Canvas>
